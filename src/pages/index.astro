@@ -1,5 +1,9 @@
 ---
+import {Button} from '@nextui-org/react';
 
+const pageTitle = "Main Page"  
+
+const color = "red"
 ---
 
 <html lang="en">
@@ -8,9 +12,18 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
+
+		<style define:vars={{color}}>
+			.skill {
+				color: var(--color);
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1 class="skill">hi mom</h1>
+
+		<Button color="primary" client:visible>My button</Button>
+
 	</body>
 </html>
