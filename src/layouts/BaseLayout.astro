@@ -1,0 +1,46 @@
+---
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+    <title>Quote AI Finder</title>
+
+  </head>
+  <body class=" bg-bg__main">
+    <!-- Navbar -->
+    <nav class="bg-white p-4 shadow-sm bg-custom__white">
+      <div class="container mx-auto flex justify-center items-center">
+        <!-- Back Button -->
+        <!-- <div class="flex items-center space-x-2">
+          <button class="text-gray-500 hover:text-black">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <span class="text-sm text-gray-500">Home</span>
+        </div> -->
+        
+        <!-- App Name -->
+        <div class="text-lg font-semibold text-center text-gray-900">
+          Quote Finder
+        </div>
+        
+        <!-- Settings Icon -->
+        <!-- <button class="text-gray-500 hover:text-black">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253V4.5a1.5 1.5 0 013 0v1.753a5.965 5.965 0 011.951.937l1.575-1.575a1.5 1.5 0 012.121 2.122l-1.575 1.575a5.965 5.965 0 01.937 1.951H19.5a1.5 1.5 0 010 3h-1.753a5.965 5.965 0 01-.937 1.951l1.575 1.575a1.5 1.5 0 01-2.121 2.121l-1.575-1.575a5.965 5.965 0 01-1.951.937V19.5a1.5 1.5 0 01-3 0v-1.753a5.965 5.965 0 01-1.951-.937l-1.575 1.575a1.5 1.5 0 01-2.121-2.121l1.575-1.575a5.965 5.965 0 01-.937-1.951H4.5a1.5 1.5 0 010-3h1.753a5.965 5.965 0 01.937-1.951L5.615 6.879a1.5 1.5 0 012.121-2.121l1.575 1.575A5.965 5.965 0 0112 6.253z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button> -->
+      </div>
+    </nav>
+    
+    <!-- Main content -->
+    <main class="container mx-auto py-8">
+      <slot />
+    </main>
+  </body>
+</html>
