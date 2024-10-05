@@ -10,7 +10,8 @@ export default {
 		},
 		colors: {
 			"bg__main": "#F2F4F7", 
-			"custom__white": "#FCFCFC"
+			"custom__white": "#FCFCFC", 
+			"custom__green": "#92E3A9",
 		}
 	},
 	plugins: [],

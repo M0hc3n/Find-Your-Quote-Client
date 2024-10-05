@@ -1,15 +1,15 @@
 ---
 ---
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
     <title>Quote AI Finder</title>
-
   </head>
-  <body class=" bg-bg__main">
+  <body class="min-h-screen bg-bg__main">
     <!-- Navbar -->
     <nav class="bg-white p-4 shadow-sm bg-custom__white">
       <div class="container mx-auto flex justify-center items-center">
@@ -22,12 +22,12 @@
           </button>
           <span class="text-sm text-gray-500">Home</span>
         </div> -->
-        
+
         <!-- App Name -->
         <div class="text-lg font-semibold text-center text-gray-900">
           Quote Finder
         </div>
-        
+
         <!-- Settings Icon -->
         <!-- <button class="text-gray-500 hover:text-black">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
@@ -37,10 +37,10 @@
         </button> -->
       </div>
     </nav>
-    
+
     <!-- Main content -->
     <main class="container mx-auto py-8">
-      <slot />
+        <slot />
     </main>
   </body>
 </html>
