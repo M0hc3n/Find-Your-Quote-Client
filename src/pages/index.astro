@@ -3,16 +3,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Components
-import QuoteFinder from "../components/QuoteFinder";
-import QuotesHistory from "../components/QuotesHistory";
-
-// contexts
-import { QuotesProvider } from "../contexts/QuotesContext";
+import QuoteFinder from "../components/finder/QuoteFinder";
+import QuotesHistory from "../components/history/QuotesHistory";
 ---
 
-<QuotesProvider client:load>
-  <BaseLayout title="Quote Finder">
-    <QuoteFinder client:load />
-    <QuotesHistory client:load />
-  </BaseLayout>
-</QuotesProvider>
+<BaseLayout title="Quote Finder">
+  <QuoteFinder client:load />
+  <QuotesHistory client:load />
+</BaseLayout>

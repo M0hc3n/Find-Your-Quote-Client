@@ -1,7 +1,8 @@
 /* eslint-disable func-names */
-import { useContext, useEffect, useState } from "react";
-import { QuotesContext } from "../../contexts/QuotesContext";
+import { useEffect, useState } from "react";
 import { quotesRepo } from "../repositories/quotes.repo";
+import { quotes } from "../../contexts/quotes";
+import { useStore } from "@nanostores/react";
 
 export default function useGetQuotesViewModel() {
   const [status, setStatus] = useState({
@@ -10,7 +11,7 @@ export default function useGetQuotesViewModel() {
     error: "",
   });
 
-  const context = useContext(QuotesContext);
+  const $quotes = useStore(quotes);
 
   useEffect(() => {
     void (async function () {
@@ -19,7 +20,7 @@ export default function useGetQuotesViewModel() {
 
         const res = await quotesRepo.getQuotes();
 
-        context?.setQuotes(res);
+        quotes.set(res);
 
         setStatus({
           loading: false,
@@ -29,7 +30,7 @@ export default function useGetQuotesViewModel() {
       } catch (e) {
         console.log(e);
 
-        context?.setQuotes([]);
+        quotes.set([]);
         setStatus({ loading: false, success: "", error: e });
       }
     })();
@@ -37,6 +38,6 @@ export default function useGetQuotesViewModel() {
 
   return {
     status,
-    quotes: context?.quotes,
+    quotes: $quotes,
   };
 }

@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Textarea, Button } from "@nextui-org/react";
-import useFindQuotesViewModel from "../lib/viewmodels/find-quote.viewmodel";
+import useFindQuotesViewModel from "../../lib/viewmodels/find-quote.viewmodel";
 import Loading from "react-loading-components";
-import TickIcon from "../icons/TickIcon";
-import useCreateQuotesViewModel from "../lib/viewmodels/create-quote.viewmodel";
+import FoundQuoteCard from "./FoundQuoteCard";
+import { uid } from "uid";
 
 export default function QuoteFinder() {
   const { foundQuotes, status, handleQuoteFinding } = useFindQuotesViewModel();
-  const { handleQuoteCreation, status: statusQuoteCreation } =
-    useCreateQuotesViewModel();
 
   const [quoteInfo, setQuoteInfo] = useState("");
 
@@ -58,40 +56,11 @@ export default function QuoteFinder() {
 
         {foundQuotes &&
           foundQuotes.map((quote) => (
-            <div
-              key={quote.response}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="flex justify-between">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  Response: ✨
-                </h3>
-
-                <Button
-                  isIconOnly
-                  onClick={() => {
-                    handleQuoteCreation(quoteInfo, quote);
-                  }}
-                  className="bg-transparent"
-                  // isLoading={statusQuoteCreation.loading}
-                  aria-label="mark as success"
-                >
-                  <TickIcon />
-                </Button>
-              </div>
-
-              <p className="text-gray-600 mb-4">{quote.response}</p>
-
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                Author:
-              </h3>
-              <p className="text-gray-600 mb-4">{quote.author}</p>
-
-              <div className="text-sm text-gray-500 mt-4 border-t pt-2">
-                {/* <span>Date: {quote.date}</span> |{" "} */}
-                <span>Category: {quote.category[0]}</span>
-              </div>
-            </div>
+            <FoundQuoteCard
+              key={quote.author + uid()}
+              quote={quote}
+              quoteInfo={quoteInfo}
+            />
           ))}
       </form>
     </div>

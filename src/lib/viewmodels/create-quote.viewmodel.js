@@ -1,7 +1,8 @@
 /* eslint-disable func-names */
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { quotesRepo } from "../repositories/quotes.repo";
-import { QuotesContext } from "../../contexts/QuotesContext";
+import { quotes } from "../../contexts/quotes";
+import { getCurrentDate } from "../../utils";
 
 export default function useCreateQuotesViewModel() {
   const [status, setStatus] = useState({
@@ -10,8 +11,6 @@ export default function useCreateQuotesViewModel() {
     error: "",
   });
 
-  const context = useContext(QuotesContext);
-
   const handleQuoteCreation = async (question, quote) => {
     setStatus({ loading: true, success: "", error: "" });
 
@@ -19,8 +18,9 @@ export default function useCreateQuotesViewModel() {
       const quoteToBeInserted = {
         question,
         response: quote.response,
-        category: quote.category,
-        date: new Date(),
+        author: quote.author,
+        category: quote.category[0],
+        date: getCurrentDate(),
       };
 
       const res = await quotesRepo.createQuote(quoteToBeInserted);
@@ -32,9 +32,8 @@ export default function useCreateQuotesViewModel() {
           error: "",
         });
 
-        console.log(context);
-        
-        context?.setQuotes((prev) => [...prev, res]);
+        const currentQuotes = quotes.get();
+        quotes.set([...currentQuotes, res]);
       } else {
         setStatus({
           loading: false,
