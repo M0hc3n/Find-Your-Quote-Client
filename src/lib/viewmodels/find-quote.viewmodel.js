@@ -17,6 +17,8 @@ export default function useFindQuotesViewModel() {
     try {
       const apiRes = await quotesRepo.findQuotesBasedOnPrompt(prompt);
 
+      console.log(apiRes);
+
       setFoundQuotes(apiRes);
 
       setStatus({

@@ -35,7 +35,7 @@ class QuotesRepo {
   async findQuotesBasedOnPrompt(prompt) {
     // call API
     try {
-      const response = await axios.post(API_ROUTES.FIND_SIMILAR_QUOTES, {
+      const response = await axios.post(API_ROUTES.FIND_SIMILAR_QUOTES_ENHANCED, {
         prompt,
       });
 
